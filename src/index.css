@@ -1,0 +1,179 @@
+/* výchozí light mode */
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color: #111827;             /* tmavé písmo pro light mode */
+  background-color: #ffffff;  /* světlé pozadí pro light mode */
+
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  padding-top: 80px;
+  background-color: #bfb699;
+}
+
+/* hlavní container */
+.app-container {
+  background: #ffffff; /* světlý container */
+  padding: 40px;
+  border-radius: 16px;
+  width: 420px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+}
+
+/* nadpis */
+h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 32px;
+  color: inherit; /* použije barvu z :root */
+}
+
+.nadpis {
+  color: black;
+  text-align: center;
+}
+
+/* input */
+input {
+  width: 100%;
+  height: 50px;
+  padding: 0 15px;
+  border-radius: 12px;
+  border: 1px solid #d1d5db;
+  font-size: 16px;
+  background: #f3f4f6;
+  color: #111827; /* tmavý text pro light mode */
+  outline: none;
+  transition: 0.25s;
+}
+
+input:focus {
+  border-color: #6366f1;
+  box-shadow: 0 0 8px rgba(99,102,241,0.5);
+}
+
+/* show password button */
+button {
+  margin-top: 10px;
+  padding: 10px 16px;
+  border-radius: 10px;
+  border: none;
+  background: #6366f1;
+  color: #ffffff; /* světlé tlačítko text */
+  cursor: pointer;
+  font-size: 14px;
+  transition: 0.25s;
+}
+
+button:hover {
+  background: #4f46e5;
+}
+
+/* password strength bar background */
+.strength-bar-container {
+  width: 100%;
+  height: 10px;
+  background: #d1d5db;
+  border-radius: 10px;
+  margin: 10px 0 20px 0;
+  overflow: hidden;
+}
+
+/* password strength bar fill */
+.strength-bar {
+  height: 100%;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+/* seznam kritérií */
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  padding: 6px 0;
+  font-size: 14px;
+}
+
+/* splněné */
+.valid {
+  color: #22c55e;
+}
+
+/* Přepsání text-danger */
+.text-danger {
+  color: #ff0000 !important; /* čistě červená */
+}
+
+
+
+/* dark mode */
+@media (prefers-color-scheme: dark) {
+  :root {
+    background-color: #000000;
+    color: #e5e7eb; /* světlé písmo v dark mode */
+  }
+
+  body {
+    background-color: #1c1c1c;
+  }
+
+  .app-container {
+    background: #111111;
+  }
+
+  input {
+    background: #111111;
+    border-color: #222222;
+    color: #e5e7eb; /* světlý text v inputech */
+  }
+
+  .strength-bar-container {
+    background: #374151;
+  }
+  .nadpis {
+    color: #ffffff;
+    text-align: center;
+  }
+
+  .list-item-custom {
+    background-color: #07090c; /* tmavé pozadí pro dark/light */
+    border: none;              /* odstraní okraje, pokud chceš */
+    color: inherit;            /* dědí barvu textu */
+  }
+  .text-pole-custom{
+    background-color: #07090c;
+    border: #303030;
+    color: #e5e7eb;
+  }
+
+  .text-pole-custom::placeholder {
+    color: #fdfeff; /* světle šedá pro placeholder */
+    opacity: 1;     /* u některých prohlížečů musíte nastavit, aby opacity nebyla 0.5 */
+  }
+
+  .text-pole-custom:focus {
+    color: #e5e7eb; /* světlý text zůstane světlý při kliknutí */
+    border-color: #6366f1;
+    box-shadow: 0 0 8px rgba(99,102,241,0.5);
+    background-color: #313f55; /* zůstane tmavé pozadí */
+  }
+
+  .progress-custom-color {
+    background-color: #07090c; /* tmavý pruh pro dark mode */
+  }
+
+}
